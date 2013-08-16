@@ -22,5 +22,13 @@
       %td
         = image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{idea.latitude}%2C#{idea.longitude}"
       %td
-        = image_tag idea.image_url(:thumb).to_s
+        - if image_tag idea.image_url(:thumb)
+          = image_tag idea.image_url(:thumb).to_s
 %p= link_to "New Idea", new_idea_path
+
+%p
+  = debug(@uploader)
+  %br
+  = direct_upload_form_for @uploader do |f|
+    %p= f.file_field :image
+    %p= f.submit "Upload image"

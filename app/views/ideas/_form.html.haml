@@ -8,7 +8,9 @@
     = f.label :address
     = f.text_field :address, class: "span6"
     
-    = f.file_field :image
+    / = f.file_field :image
+    = f.hidden_field :key
+    %p File: #{@idea.image_name}
     
     = f.label :remote_image_url, "or image url"
     = f.text_field :remote_image_url 

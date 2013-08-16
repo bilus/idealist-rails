@@ -29,6 +29,9 @@ gem 'haml-rails'
 gem 'geocoder'
 gem "rmagick"
 gem 'carrierwave'
+gem 'fog'
+gem 'carrierwave_direct'
+gem 'sidekiq'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
