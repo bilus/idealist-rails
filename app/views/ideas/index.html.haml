@@ -1,0 +1,24 @@
+- title "Ideas"
+
+%table
+  %tr 
+    %th Title
+    %th Description
+    %th Address
+    %th Latitude
+    %th Longitude
+    %th Map
+  - for idea in @ideas
+    %tr 
+      %td= idea.title
+      %td= idea.description
+      %td= idea.address
+      %td= idea.latitude
+      %td= idea.longitude
+      %td= link_to "Show", idea
+      %td= link_to "Edit", edit_idea_path(idea)
+      %td= link_to "Destroy", idea, confirm: 'Are you sure?', method: :delete
+      %td
+        %img{src: "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{idea.latitude}%2C#{idea.longitude}"}
+
+%p= link_to "New Idea", new_idea_path
