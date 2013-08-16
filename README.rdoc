@@ -1,7 +1,7 @@
 TODO:
 
 + Show the list of ideas.
-- Show map.
++ Show map.
 - Let upload a photo.
 - Style it a bit.
 - Add user accounts using Devise with special admin account.
