@@ -7,16 +7,15 @@
     = f.text_area :description, class: "span6"
     = f.label :address
     = f.text_field :address, class: "span6"
+
+    = f.label :image, "Dodaj plik ze swojego komputera"
+    = f.file_field :image
     
-    / = f.file_field :image
-    = f.hidden_field :key
-    %p File: #{@idea.image_name}
-    
-    = f.label :remote_image_url, "or image url"
-    = f.text_field :remote_image_url 
+    = f.label :remote_image_url, "lub wpisz adres Internetowy"
+    = f.text_field :remote_image_url
     / = f.label :latitude
     / = f.text_field :latitude
     / = f.label :longitude
     / = f.text_field :longitude
   %fieldset
-    = f.submit
+    = f.submit class: 'btn btn-primary btn-large'

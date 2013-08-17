@@ -6,6 +6,8 @@ class Idea < ActiveRecord::Base
   after_validation :geocode, if: :address_changed?
   mount_uploader :image, ImageUploader
   
+  validates_presence_of :title
+  
   def image_name
     File.basename(image.path || image.filename) if image
   end

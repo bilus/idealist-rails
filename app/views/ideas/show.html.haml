@@ -1,0 +1,43 @@
+- title @idea.title
+
+
+
+.well
+  .media
+    %a.pull-left{href: "#", style: "max-width: 200px;", "data-toggle" => "lightbox", href: "#fullsizeImage"}
+      .thumbnail
+        = image_tag @idea.image_url(:thumb).to_s
+    
+    .media-body
+      %h4.media-heading Jaki pomysł?
+      %p= @idea.description
+
+  .media
+    %a.pull-right{href: "#", style: "max-width: 200px", "data-toggle" => "lightbox", href: "#fullsizeMap"}
+      .thumbnail
+        = image_tag map_url(@idea, width: 200, height: 200)     
+
+  .media-body
+    %h4.media-heading Gdzie?
+    = human_address(@idea)
+
+
+%p
+  = link_to "Edytuj", edit_idea_path(@idea) 
+  |
+  = link_to "Usuń", @idea, :confirm => 'Czy na pewno usunąć?', :method => :delete 
+  / |
+  / = link_to "View All", ideas_path
+
+#fullsizeImage.lightbox.hide.fade{tabindex: "-1", role: "dialog", "aria-hidden" => true}
+  .lightbox-content
+    = image_tag @idea.image_url.to_s
+    .lightbox-caption
+      %p= @idea.title
+      
+#fullsizeMap.lightbox.hide.fade{tabindex: "-1", role: "dialog", "aria-hidden" => true}
+  .lightbox-content
+    = image_tag map_url(@idea, width: 600, height: 400) 
+    .lightbox-caption
+      %p= human_address(@idea)
+      

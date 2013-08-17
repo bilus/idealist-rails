@@ -1,8 +1,6 @@
 class IdeasController < ApplicationController
   def index
     @ideas = Idea.all
-    @uploader = Idea.new.image
-    @uploader.success_action_redirect = new_idea_url
   end
 
   def show
@@ -10,7 +8,7 @@ class IdeasController < ApplicationController
   end
 
   def new
-    @idea = Idea.new(key: params[:key])
+    @idea = Idea.new
   end
 
   def create

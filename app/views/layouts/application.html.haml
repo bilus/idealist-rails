@@ -3,7 +3,9 @@
 
   %head
     %title
-      = yield(:title) || "Untitled"
+      = yield(:title)
+      \ - 
+      WROKREACJE.PL
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     = stylesheet_link_tag "application"
     = javascript_include_tag :application
@@ -19,14 +21,14 @@
               %span.icon-bar
               %span.icon-bar
               %span.icon-bar
-            %a.brand{href: "#"} Idealist
+            %a.brand{href: "/"} WROKREACJE.PL
             .nav-collapse
               %ul.nav
                 %li
-                  = link_to "Ideas", ideas_path
+                  = link_to "Pomysły", ideas_path
     #container
       .row
-        .span6.offset3.content
+        .span8.offset2.content
           - flash.each do |name, msg|
             = content_tag :div, msg, :id => "flash_#{name}"
 

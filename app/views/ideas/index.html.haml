@@ -1,34 +1,29 @@
-- title "Ideas"
+- title "Pomysły"
 
-%table
-  %tr 
-    %th Title
-    %th Description
-    %th Address
-    %th Latitude
-    %th Longitude
-    %th Map
-    %th Thumb
-  - for idea in @ideas
-    %tr 
-      %td= idea.title
-      %td= idea.description
-      %td= idea.address
-      %td= idea.latitude
-      %td= idea.longitude
-      %td= link_to "Show", idea
-      %td= link_to "Edit", edit_idea_path(idea)
-      %td= link_to "Destroy", idea, confirm: 'Are you sure?', method: :delete
-      %td
-        = image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{idea.latitude}%2C#{idea.longitude}"
-      %td
-        - if image_tag idea.image_url(:thumb)
-          = image_tag idea.image_url(:thumb).to_s
-%p= link_to "New Idea", new_idea_path
+:css
+  .idea {
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
 
-%p
-  = debug(@uploader)
-  %br
-  = direct_upload_form_for @uploader do |f|
-    %p= f.file_field :image
-    %p= f.submit "Upload image"
+%p= link_to "Dodaj pomysł", new_idea_path, class: "btn btn-primary btn-large"
+
+- for idea in @ideas
+  .well.idea
+    .media
+      %a.pull-left{href: idea_path(idea), style: "max-width: 200px;"}
+        .thumbnail
+          / = image_tag idea.image_url(:thumb).to_s
+          = image_tag "http://maps.google.com/maps/api/staticmap?size=600x600&sensor=false&zoom=16&markers=#{idea.latitude}%2C#{idea.longitude}"
+      
+
+    
+      .media-body
+        %h4.media-heading= idea.title
+        %p= idea.description
+        = link_to "Więcej...", idea
+        .actions
+          
+  = link_to "Edytuj", edit_idea_path(idea)
+  |
+  = link_to "Usuń", idea, confirm: 'Czy na pewno usunąć?', method: :delete
