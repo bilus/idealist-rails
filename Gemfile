@@ -20,8 +20,8 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'less-rails'
-  gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 end
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 gem 'jquery-rails'
 gem 'haml-rails'
