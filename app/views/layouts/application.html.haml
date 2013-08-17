@@ -1,0 +1,46 @@
+!!!
+%html
+
+  %head
+    %title
+      = yield(:title)
+      \ - 
+      WROKREACJE.PL
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    = stylesheet_link_tag "application"
+    = javascript_include_tag :application
+    = csrf_meta_tag
+    = yield(:head)
+
+  %body
+    %header
+      .navbar.navbar-fixed-top.navbar-inverse
+        .navbar-inner
+          .container
+            %a.btn.btn-navbar{"data-toggle" => "collapse", "data-target" => ".nav-collapse"}
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            %a.brand{href: root_path} WROKREACJE.PL
+            .nav-collapse
+              %ul.nav
+                %li
+                  = link_to "Pomysły", ideas_path
+    #container#content
+      .row
+        .span10.offset2#content_column
+          - flash.each do |name, msg|
+            = content_tag :div, msg, :id => "flash_#{name}"
+
+          - if show_title?
+            / %h1#page_title= yield(:title)
+            %ul.breadcrumb
+              %li
+                - unless current_page?(root_url)
+                  %a{href: root_path}
+                    Strona Główna
+                  %span.divider
+                %li.active
+                  %h1#page_title= yield(:title)
+
+          = yield

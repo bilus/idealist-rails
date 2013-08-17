@@ -1,0 +1,4 @@
+LOG:  database system was shut down at 2013-08-15 11:49:26 CEST
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "idealist_development" does not exist

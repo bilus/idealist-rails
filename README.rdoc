@@ -1,0 +1,24 @@
+TODO:
+
++ Show the list of ideas.
++ Show map.
++ Let upload a photo.
++ Upload to S3.
++ Style it a bit.
++ Translate the form.
+
++ Show full photo on click.
++ Show full map on click.
++ Show Wrocław's map if no address specified.
+
+
+
+- Add user accounts using Devise with special admin account.
+- Authentication using Facebook.
+- Only authenticated users can add ideas.
+- Authenticated users can vote.
+
+- Only admins can remove/edit ideas.
+- Authors can remove/edit ideas.
+
+- Show forms inline.

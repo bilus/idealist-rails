@@ -1,0 +1,29 @@
+- title "Pomysły"
+
+:css
+  .idea {
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+
+%p= link_to "Dodaj pomysł", new_idea_path, class: "btn btn-primary btn-large"
+
+- for idea in @ideas
+  .well.idea
+    .media
+      %a.pull-left{href: idea_path(idea), style: "max-width: 200px;"}
+        .thumbnail
+          / = image_tag idea.image_url(:thumb).to_s
+          = image_tag "http://maps.google.com/maps/api/staticmap?size=600x600&sensor=false&zoom=16&markers=#{idea.latitude}%2C#{idea.longitude}"
+      
+
+    
+      .media-body
+        %h4.media-heading= idea.title
+        %p= idea.description
+        = link_to "Więcej...", idea
+        .actions
+          
+  = link_to "Edytuj", edit_idea_path(idea)
+  |
+  = link_to "Usuń", idea, confirm: 'Czy na pewno usunąć?', method: :delete
