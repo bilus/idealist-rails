@@ -1,21 +1,34 @@
-= form_for @idea do |f|
-  %fieldset
-    = f.error_messages
-    = f.label :title
-    = f.text_field :title, class: "span6"
-    = f.label :description
-    = f.text_area :description, class: "span6"
-    = f.label :address
-    = f.text_field :address, class: "span6"
+﻿:css
+  #page_title {
+    // margin-left: 180px;
+  }
 
-    = f.label :image, "Dodaj plik ze swojego komputera"
-    = f.file_field :image
-    
-    = f.label :remote_image_url, "lub wpisz adres Internetowy"
-    = f.text_field :remote_image_url
-    / = f.label :latitude
-    / = f.text_field :latitude
-    / = f.label :longitude
-    / = f.text_field :longitude
-  %fieldset
-    = f.submit class: 'btn btn-primary btn-large'
+= form_for @idea, html: { class: "form-horizontal" } do |f|
+  .control-group
+    .controls
+      = f.error_messages
+
+  .control-group
+    = f.label :title, class: 'control-label required'
+    .controls
+      = f.text_field :title, class: "span6 required"
+
+  .control-group
+    = f.label :description, class: 'control-label required'
+    .controls
+      = f.text_area :description, class: "span6"
+
+  .control-group
+    = f.label :image, "Zdjęcie", class: 'control-label required'
+    .controls
+      = f.file_field :image
+      = f.label :remote_image_url, "lub wpisz adres Internetowy"
+      = f.text_field :remote_image_url
+
+  .control-group
+    = f.label :address, class: 'control-label'
+    .controls
+      = f.text_field :address, class: "span6"
+  .control-group
+    .controls
+      = f.submit class: 'btn btn-primary btn-large'

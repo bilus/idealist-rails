@@ -21,18 +21,26 @@
               %span.icon-bar
               %span.icon-bar
               %span.icon-bar
-            %a.brand{href: "/"} WROKREACJE.PL
+            %a.brand{href: root_path} WROKREACJE.PL
             .nav-collapse
               %ul.nav
                 %li
                   = link_to "Pomysły", ideas_path
-    #container
+    #container#content
       .row
-        .span8.offset2.content
+        .span10.offset2#content_column
           - flash.each do |name, msg|
             = content_tag :div, msg, :id => "flash_#{name}"
 
           - if show_title?
-            %h1= yield(:title)
+            / %h1#page_title= yield(:title)
+            %ul.breadcrumb
+              %li
+                - unless current_page?(root_url)
+                  %a{href: root_path}
+                    Strona Główna
+                  %span.divider
+                %li.active
+                  %h1#page_title= yield(:title)
 
           = yield

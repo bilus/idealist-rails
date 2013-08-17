@@ -7,6 +7,12 @@ class Idea < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   
   validates_presence_of :title
+  validates_presence_of :description
+  validates :image,
+    presence: true,
+    file_size: {
+      maximum: 0.5.megabytes.to_i
+    }
   
   def image_name
     File.basename(image.path || image.filename) if image

@@ -3,6 +3,9 @@ pl:
   errors: &errors
     format: ! 'Pole %{attribute} %{message}'
     messages:
+      wrong_size: zawiera załącznik o niewłaściwym rozmiarze
+      size_too_small: 'zawiera za mały załącznik (minimalny rozmiar: %{file_size})'
+      size_too_big: 'zawiera za duży załącznik (maksymalny rozmiar: %{file_size})'
       accepted: musi zostać zaakceptowane
       blank: nie może być puste
       confirmation: nie zgadza się z potwierdzeniem
@@ -42,7 +45,8 @@ pl:
         title: 'Tytuł'
         description: 'Opis'
         address: 'Adres'
-            
+        image: 'Zdjęcie'
+        
   helpers:
     label:
       idea:
