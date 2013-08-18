@@ -13,7 +13,10 @@ TODO:
 
 
 
-- Add user accounts using Devise with special admin account.
+- Add user accounts using Devise .
+- Translation.
+- Everything works incl. email confirmations etc.
+- Admin account.
 - Authentication using Facebook.
 - Only authenticated users can add ideas.
 - Authenticated users can vote.

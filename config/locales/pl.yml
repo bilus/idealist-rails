@@ -40,12 +40,20 @@ pl:
       <<: *errors
     models:
       idea: Pomysł
+      user: Użytkownik
     attributes:
       idea:
         title: 'Tytuł'
         description: 'Opis'
         address: 'Adres'
         image: 'Zdjęcie'
+      user:
+        email: 'Adres email'
+        current_password: 'Obecne hasło'
+        password: 'Hasło'
+        password_confirmation: 'Potwierdzenie hasła'
+        remember_me: 'Zapamiętaj mnie'
+        
         
   helpers:
     label:

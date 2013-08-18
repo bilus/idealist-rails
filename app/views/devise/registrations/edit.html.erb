@@ -1,0 +1,60 @@
+﻿<%#= resource_name.to_s.humanize %> 
+<h2>Profil</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => "form-horizontal" }) do |f| %>
+  <div class="control-group">
+    <div class="controls">
+      <%= devise_error_messages! %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :email, :class => "control-label" %>
+    <div class="controls">
+      <%= f.email_field :email, :autofocus => true, :class => "" %>
+    </div>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div class="control-group">
+      <div class="controls">
+        Obecnie czekamy na potwierdzenie adresu email: <%= resource.unconfirmed_email %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :password, :class => "control-label" %> <i></i>
+    <div class="controls">
+      <%= f.password_field :password, :autocomplete => "off" %>
+      <span class="help-block">(zostaw puste, jeżeli nie chcesz zmieniać hasła)</span>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :password_confirmation, :class => "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :current_password, :class => "control-label" %>
+    <div class="controls">
+      <%= f.password_field :current_password %>
+      <span class="help-block">(potrzebujemy Twojego obecnego hasła, aby potwierdzić zmiany)</span>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "Zapisz" %>
+    </div>
+  </div>
+<% end %>
+
+<h3>Usuń konto</h3>
+
+<p><%= button_to "Usuń swoje konto", registration_path(resource_name), :data => { :confirm => "Czy na pewno usunąć konto?" }, :method => :delete %></p>
+
+<%= link_to "Powrót", :back %>

@@ -12,14 +12,14 @@ label.required:after {
   content: " *";
 }
 
-.control-group .controls {
-  margin-left: 100px;
+/*.control-group .controls {
+  margin-left: 120px;
 }
 
 .control-group .control-label {
-  width: 70px;
+  width: 100px;
 }
-
+*/
 .breadcrumb {
   background-color: white;
   margin-left: 0;

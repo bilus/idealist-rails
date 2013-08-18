@@ -1,0 +1,39 @@
+﻿<h2>Nowy użytkownik</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => "form-horizontal"}) do |f| %>
+
+  <div class="control-group">
+    <div class="controls">
+      <%= devise_error_messages! %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label :email, :class => "control-label" %>
+    <div class="controls">
+      <%= f.email_field :email, :autofocus => true %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label :password, :class => "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <%= f.label :password_confirmation, :class => "control-label" %>
+    <div class="controls">
+      <%= f.password_field :password_confirmation %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "Utwórz konto" %>
+    </div>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>

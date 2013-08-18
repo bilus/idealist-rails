@@ -33,6 +33,8 @@ gem 'fog'
 # gem 'carrierwave_direct'
 # gem 'sidekiq'
 
+gem 'devise'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -56,6 +58,7 @@ end
 group :test, :development do
   gem 'rspec-rails'
   gem 'sqlite3'
+  gem 'factory_girl'
 end
 
 gem "mocha", :group => :test
