@@ -28,10 +28,10 @@
                   = link_to "Pomysły", ideas_path
                 - if user_signed_in?
                   %li= link_to current_user.email, edit_user_registration_path 
-                  %li= link_to "Logout", destroy_user_session_path, method: :delete
+                  %li= link_to "Wyloguj się", destroy_user_session_path, method: :delete
                 -else
-                  %li= link_to "Sign up", new_user_registration_path
-                  %li= link_to "Login", new_user_session_path
+                  %li= link_to "Utwórz konto", new_user_registration_path
+                  %li= link_to "Zaloguj się", new_user_session_path
     #container#content
       .row
         .span10.offset2#content_column

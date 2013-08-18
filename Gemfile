@@ -34,7 +34,8 @@ gem 'fog'
 # gem 'sidekiq'
 
 gem 'devise'
-
+gem 'omniauth'
+gem 'omniauth-facebook'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
