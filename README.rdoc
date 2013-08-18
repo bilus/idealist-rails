@@ -13,7 +13,7 @@ TODO:
 
 
 
-- Add user accounts using Devise .
++ Add user accounts using Devise.
 - Translation.
 - Everything works incl. email confirmations etc.
 - Admin account.
