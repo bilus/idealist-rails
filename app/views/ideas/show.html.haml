@@ -22,12 +22,12 @@
     = human_address(@idea)
 
 
-%p
-  = link_to "Edytuj", edit_idea_path(@idea) 
-  |
-  = link_to "Usuń", @idea, :confirm => 'Czy na pewno usunąć?', :method => :delete 
-  / |
-  / = link_to "View All", ideas_path
+- if current_user.try(:admin?)
+  %p
+    = link_to "Edytuj", edit_idea_path(@idea) 
+    |
+    = link_to "Usuń", @idea, :confirm => 'Czy na pewno usunąć?', :method => :delete 
+
 
 #fullsizeImage.lightbox.hide.fade{tabindex: "-1", role: "dialog", "aria-hidden" => true}
   .lightbox-content

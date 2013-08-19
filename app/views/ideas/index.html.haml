@@ -23,7 +23,7 @@
         %p= idea.description
         = link_to "Więcej...", idea
         .actions
-          
-  = link_to "Edytuj", edit_idea_path(idea)
-  |
-  = link_to "Usuń", idea, confirm: 'Czy na pewno usunąć?', method: :delete
+  - if current_user.try(:admin?)        
+    = link_to "Edytuj", edit_idea_path(idea)
+    |
+    = link_to "Usuń", idea, confirm: 'Czy na pewno usunąć?', method: :delete
