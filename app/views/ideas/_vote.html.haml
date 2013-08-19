@@ -1,0 +1,7 @@
+﻿Głosów:
+= idea.reputation_for(:votes).to_i
+- if current_user
+  &nbsp;
+  = link_to "Za", vote_idea_path(idea, type: "up"), method: "post"
+  |
+  = link_to "Przeciw", vote_idea_path(idea, type: "down"), method: "post"

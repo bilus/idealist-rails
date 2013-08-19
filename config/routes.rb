@@ -1,9 +1,12 @@
 ﻿Idealist::Application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
 
-  resources :ideas
+  resources :ideas do
+    member { post :vote }
+  end
   
   root to: 'ideas#index'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

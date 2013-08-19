@@ -20,9 +20,13 @@
     
       .media-body
         %h4.media-heading= idea.title
-        %p= idea.description
-        = link_to "Więcej...", idea
-        .actions
+        %p
+          - max_len = 300
+          = truncate(idea.description, length: max_len, omission: "")
+          - if idea.description.length > max_len
+            = link_to "Więcej...", idea
+        = render "vote", idea: idea
+        
   - if current_user.try(:admin?)        
     = link_to "Edytuj", edit_idea_path(idea)
     |

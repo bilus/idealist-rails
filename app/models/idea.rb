@@ -6,6 +6,9 @@ class Idea < ActiveRecord::Base
   after_validation :geocode, if: :address_changed?
   mount_uploader :image, ImageUploader
   
+  belongs_to :user
+  has_reputation :votes, source: :user, aggregated_by: :sum
+  
   validates_presence_of :title
   validates_presence_of :description
   validates :image,

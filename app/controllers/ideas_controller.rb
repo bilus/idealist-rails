@@ -1,5 +1,5 @@
 ﻿class IdeasController < ApplicationController
-  before_filter :require_authentication, only: [:new, :create]
+  before_filter :require_authentication, only: [:new, :create, :vote]
   before_filter :require_admin, only: [:edit, :update, :destroy]
   
   def index
@@ -40,6 +40,13 @@
     @idea = Idea.find(params[:id])
     @idea.destroy
     redirect_to ideas_url, :notice => "Pomysł został usunięty."
+  end
+  
+  def vote
+    value = params[:type] == "up" ? 1 : -1
+    @idea = Idea.find(params[:id])
+    @idea.add_or_update_evaluation(:votes, value, current_user)
+    redirect_to :back, notice: "Dziękujemy za Twój głos."
   end
   
   private

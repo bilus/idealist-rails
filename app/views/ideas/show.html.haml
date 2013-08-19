@@ -11,6 +11,8 @@
     .media-body
       %h4.media-heading Jaki pomysł?
       %p= @idea.description
+      %p= render "vote", idea: @idea
+
 
   .media
     %a.pull-right{href: "#", style: "max-width: 200px", "data-toggle" => "lightbox", href: "#fullsizeMap"}

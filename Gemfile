@@ -27,11 +27,14 @@ gem 'jquery-rails'
 gem 'haml-rails'
 
 gem 'geocoder'
+
 gem "rmagick"
 gem 'carrierwave'
 gem 'fog'
 # gem 'carrierwave_direct'
 # gem 'sidekiq'
+
+gem 'activerecord-reputation-system', require: 'reputation_system'
 
 gem 'devise'
 gem 'omniauth'
