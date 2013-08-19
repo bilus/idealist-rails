@@ -26,5 +26,6 @@
       = f.text_field :address, class: "span6"
   .control-group
     .controls
-      = f.submit class: 'btn btn-primary btn-large', disable_with: "Zapisuję..."
+      = f.submit class: 'btn btn-primary', disable_with: "Zapisuję..."
+      &nbsp;
       = link_to_function 'Zamknij', 'var form = $(this).parents("form"); form.prev().show(); form.remove();', class: 'cancel_button'

@@ -28,5 +28,8 @@ TODO:
 
 + FIX: "Dodaj pomysł" should redirect to login page if not logged in.
 
+- Ajax form submission with upload.
+- Ajax voting.
+
 - Pagination using kaminari.
 - Ranking using reddit algorithm.

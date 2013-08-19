@@ -23,7 +23,7 @@
     
     if @idea.save
       respond_to do |format|
-        format.html { redirect_to @idea, :notice => "Pomysł został zapisany." }
+        format.html { redirect_to action: "index", :notice => "Pomysł został zapisany." }
         format.js
       end
     else
@@ -43,11 +43,10 @@
   end
 
   def update
-    puts "update"
     @idea = Idea.find(params[:id])
     if @idea.update_attributes(params[:idea])
       respond_to do |format|
-        format.html { redirect_to @idea, :notice  => "Pomysł został zapisany." }
+        format.html { redirect_to action: "index", :notice => "Pomysł został zapisany." }
         format.js
       end
     else
