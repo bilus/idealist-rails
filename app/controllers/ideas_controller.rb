@@ -43,6 +43,7 @@
   end
 
   def update
+    puts "update"
     @idea = Idea.find(params[:id])
     if @idea.update_attributes(params[:idea])
       respond_to do |format|
@@ -71,12 +72,24 @@
   end
   
   private
+
+  def js_compatible_redirect_to(url)
+    respond_to do |format|
+      format.html do 
+        redirect_to url 
+      end
+      
+      format.js do 
+        render js: "window.location = #{url.to_json};"
+      end
+    end
+  end
     
   def require_authentication
-    redirect_to new_user_session_url unless user_signed_in?
+    js_compatible_redirect_to(new_user_session_url) unless user_signed_in?
   end
 
   def require_admin
-    redirect_to new_user_session_url unless current_user.try(:admin)
+    js_compatible_redirect_to(new_user_session_url) unless current_user.try(:admin)
   end
 end

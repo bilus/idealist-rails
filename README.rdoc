@@ -24,4 +24,9 @@ TODO:
 + Voting changes the order on the next reload.
 
 + Authors can remove/edit ideas.
-- Show forms inline.
++ Show forms inline.
+
++ FIX: "Dodaj pomysł" should redirect to login page if not logged in.
+
+- Pagination using kaminari.
+- Ranking using reddit algorithm.
