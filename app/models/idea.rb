@@ -12,9 +12,9 @@ class Idea < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :description
   validates :image,
-    # presence: true,
+    presence: true,
     file_size: {
-      maximum: 0.5.megabytes.to_i
+      maximum: 1.megabyte.to_i
     }
   
   def image_name
