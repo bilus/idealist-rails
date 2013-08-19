@@ -20,6 +20,8 @@ TODO:
 + Only admins can remove/edit ideas.
 
 
-- Authenticated users can vote.
++ Authenticated users can vote.
+- Voting changes the order on the next reload.
+
 - Authors can remove/edit ideas.
 - Show forms inline.

@@ -3,7 +3,7 @@
   before_filter :require_admin, only: [:edit, :update, :destroy]
   
   def index
-    @ideas = Idea.all
+    @ideas = Idea.find_with_reputation(:votes, :all, order: "votes DESC")
   end
 
   def show
