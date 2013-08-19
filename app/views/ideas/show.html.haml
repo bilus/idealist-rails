@@ -24,10 +24,6 @@
     = human_address(@idea)
 
 
-%p
-  = render "edit_links", idea: @idea
-
-
 #fullsizeImage.lightbox.hide.fade{tabindex: "-1", role: "dialog", "aria-hidden" => true}
   .lightbox-content
     = image_tag @idea.image_url.to_s

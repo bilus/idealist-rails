@@ -1,9 +1,4 @@
-﻿:css
-  #page_title {
-    // margin-left: 180px;
-  }
-
-= form_for @idea, html: { class: "form-horizontal" }, remote: true do |f|
+﻿= form_for @idea, html: { class: "form-horizontal" }, remote: true do |f|
   .control-group
     .controls
       = f.error_messages
@@ -16,7 +11,7 @@
   .control-group
     = f.label :description, class: 'control-label required'
     .controls
-      = f.text_area :description, class: "span6"
+      = f.text_area :description, class: "span6", rows: 5
 
   .control-group
     = f.label :image, "Zdjęcie", class: 'control-label required'
@@ -31,4 +26,5 @@
       = f.text_field :address, class: "span6"
   .control-group
     .controls
-      = f.submit class: 'btn btn-primary btn-large'
+      = f.submit class: 'btn btn-primary btn-large', disable_with: "Zapisuję..."
+      = link_to_function 'Zamknij', 'var form = $(this).parents("form"); form.prev().show(); form.remove();', class: 'cancel_button'

@@ -65,9 +65,9 @@ pl:
     select:
       prompt: Proszę wybrać
     submit:
-      create: Zapisz %{model}
-      submit: Zapisz %{model}
-      update: Zapisz %{model}
+      create: Zapisz
+      submit: Zapisz
+      update: Zapisz
     
   
   date:

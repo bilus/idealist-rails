@@ -19,33 +19,41 @@
   end
 
   def create
-    @idea = current_user.ideas.create!(params[:idea])
+    @idea = current_user.ideas.build(params[:idea])
     
-    respond_to do |format|
-      format.html do
-        if @idea.save
-          redirect_to @idea, :notice => "Pomysł został zapisany."
-        else
-          render :action => 'new'
-        end
+    if @idea.save
+      respond_to do |format|
+        format.html { redirect_to @idea, :notice => "Pomysł został zapisany." }
+        format.js
       end
-      
-      format.js do
-        @idea.save!
+    else
+      respond_to do |format|
+        format.html { render :action => 'new' }
+        format.js { render template: 'ideas/new.js.erb' }
       end
     end
   end
 
   def edit
     @idea = Idea.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def update
     @idea = Idea.find(params[:id])
     if @idea.update_attributes(params[:idea])
-      redirect_to @idea, :notice  => "Pomysł został zapisany."
+      respond_to do |format|
+        format.html { redirect_to @idea, :notice  => "Pomysł został zapisany." }
+        format.js
+      end
     else
-      render :action => 'edit'
+      respond_to do |format|
+        format.html { render :action => 'edit' }
+        format.js { render template: 'ideas/edit.js.erb' }
+      end
     end
   end
 

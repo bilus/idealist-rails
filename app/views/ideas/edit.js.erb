@@ -1,0 +1,2 @@
+﻿$(".<%= dom_id(@idea) %>").find("#edit_idea").remove();
+$(".<%= dom_id(@idea) %>").find('.edit_links').hide().after('<%= j render("form", idea: @idea) %>');

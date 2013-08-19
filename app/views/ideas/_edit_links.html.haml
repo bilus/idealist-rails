@@ -1,4 +1,5 @@
-﻿- if current_user.try(:admin?) || idea.user == current_user
-  = link_to "Edytuj", edit_idea_path(idea) 
-  |
-  = link_to "Usuń", idea, :confirm => 'Czy na pewno usunąć?', :method => :delete 
+﻿.edit_links
+  - if current_user.try(:admin?) || idea.user == current_user
+    = link_to "Edytuj", edit_idea_path(idea), remote: true
+    |
+    = link_to "Usuń", idea, :confirm => 'Czy na pewno usunąć?', :method => :delete 

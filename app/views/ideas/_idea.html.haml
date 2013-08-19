@@ -1,19 +1,20 @@
-﻿.well.idea
-  .media
-    %a.pull-left{href: idea_path(idea), style: "max-width: 200px;"}
-      .thumbnail
-        / = image_tag idea.image_url(:thumb).to_s
-        = image_tag "http://maps.google.com/maps/api/staticmap?size=600x600&sensor=false&zoom=16&markers=#{idea.latitude}%2C#{idea.longitude}"
+﻿%div{class: dom_id(idea)}
+  .well.idea
+    .media
+      %a.pull-left{href: idea_path(idea), style: "max-width: 200px;"}
+        .thumbnail
+          / = image_tag idea.image_url(:thumb).to_s
+          = image_tag "http://maps.google.com/maps/api/staticmap?size=600x600&sensor=false&zoom=16&markers=#{idea.latitude}%2C#{idea.longitude}"
   
 
 
-    .media-body
-      %h4.media-heading= idea.title
-      %p
-        - max_len = 300
-        = truncate(idea.description, length: max_len, omission: "")
-        - if idea.description.length > max_len
-          = link_to "Więcej...", idea
-      = render "vote", idea: idea
+      .media-body
+        %h4.media-heading= idea.title
+        %p
+          - max_len = 300
+          = truncate(idea.description, length: max_len, omission: "")
+          - if idea.description.length > max_len
+            = link_to "Więcej...", idea
+        = render "vote", idea: idea
     
-= render "edit_links", idea: idea
+    = render "edit_links", idea: idea
