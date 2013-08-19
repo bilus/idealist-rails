@@ -21,7 +21,7 @@ TODO:
 
 
 + Authenticated users can vote.
-- Voting changes the order on the next reload.
++ Voting changes the order on the next reload.
 
-- Authors can remove/edit ideas.
++ Authors can remove/edit ideas.
 - Show forms inline.

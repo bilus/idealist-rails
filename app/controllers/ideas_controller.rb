@@ -15,7 +15,7 @@
   end
 
   def create
-    @idea = Idea.new(params[:idea])
+    @idea = current_user.ideas.build(params[:idea])
     if @idea.save
       redirect_to @idea, :notice => "Pomysł został zapisany."
     else

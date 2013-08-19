@@ -1,6 +1,6 @@
 ﻿Głosów:
 = idea.reputation_for(:votes).to_i
-- if current_user
+- if current_user && current_user != idea.user
   &nbsp;
   = link_to "Za", vote_idea_path(idea, type: "up"), method: "post"
   |

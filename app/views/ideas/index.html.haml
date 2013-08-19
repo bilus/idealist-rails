@@ -27,7 +27,4 @@
             = link_to "Więcej...", idea
         = render "vote", idea: idea
         
-  - if current_user.try(:admin?)        
-    = link_to "Edytuj", edit_idea_path(idea)
-    |
-    = link_to "Usuń", idea, confirm: 'Czy na pewno usunąć?', method: :delete
+  = render "edit_links", idea: idea
