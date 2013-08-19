@@ -16,3 +16,4 @@ coverage/*
 /tmp
 .DS_Store
 
+public/uploads/tmp/*

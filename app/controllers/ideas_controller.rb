@@ -12,14 +12,27 @@
 
   def new
     @idea = Idea.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def create
-    @idea = current_user.ideas.build(params[:idea])
-    if @idea.save
-      redirect_to @idea, :notice => "Pomysł został zapisany."
-    else
-      render :action => 'new'
+    @idea = current_user.ideas.create!(params[:idea])
+    
+    respond_to do |format|
+      format.html do
+        if @idea.save
+          redirect_to @idea, :notice => "Pomysł został zapisany."
+        else
+          render :action => 'new'
+        end
+      end
+      
+      format.js do
+        @idea.save!
+      end
     end
   end
 

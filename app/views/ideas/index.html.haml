@@ -5,26 +5,16 @@
     margin-top: 20px;
     margin-bottom: 0px;
   }
+  
+  #new_idea {
+    background-color: #FCF8E3;
+  }
+  
+  #new_idea {
+    padding-bottom: 8px;
+  }
 
-%p= link_to "Dodaj pomysł", new_idea_path, class: "btn btn-primary btn-large"
+%p= link_to "Dodaj pomysł", new_idea_path, class: "btn btn-primary btn-large", id: "new_link", remote: true
 
-- for idea in @ideas
-  .well.idea
-    .media
-      %a.pull-left{href: idea_path(idea), style: "max-width: 200px;"}
-        .thumbnail
-          / = image_tag idea.image_url(:thumb).to_s
-          = image_tag "http://maps.google.com/maps/api/staticmap?size=600x600&sensor=false&zoom=16&markers=#{idea.latitude}%2C#{idea.longitude}"
-      
-
-    
-      .media-body
-        %h4.media-heading= idea.title
-        %p
-          - max_len = 300
-          = truncate(idea.description, length: max_len, omission: "")
-          - if idea.description.length > max_len
-            = link_to "Więcej...", idea
-        = render "vote", idea: idea
-        
-  = render "edit_links", idea: idea
+#ideas
+  = render @ideas
