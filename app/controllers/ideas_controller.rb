@@ -1,4 +1,4 @@
-class IdeasController < ApplicationController
+﻿class IdeasController < ApplicationController
   def index
     @ideas = Idea.all
   end
@@ -14,7 +14,7 @@ class IdeasController < ApplicationController
   def create
     @idea = Idea.new(params[:idea])
     if @idea.save
-      redirect_to @idea, :notice => "Successfully created idea."
+      redirect_to @idea, :notice => "Pomysł został zapisany."
     else
       render :action => 'new'
     end
@@ -27,7 +27,7 @@ class IdeasController < ApplicationController
   def update
     @idea = Idea.find(params[:id])
     if @idea.update_attributes(params[:idea])
-      redirect_to @idea, :notice  => "Successfully updated idea."
+      redirect_to @idea, :notice  => "Pomysł został zapisany."
     else
       render :action => 'edit'
     end
@@ -36,6 +36,6 @@ class IdeasController < ApplicationController
   def destroy
     @idea = Idea.find(params[:id])
     @idea.destroy
-    redirect_to ideas_url, :notice => "Successfully destroyed idea."
+    redirect_to ideas_url, :notice => "Pomysł został usunięty."
   end
 end
