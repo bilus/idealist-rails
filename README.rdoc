@@ -11,21 +11,15 @@ TODO:
 + Show full map on click.
 + Show Wrocław's map if no address specified.
 
-
-
 + Add user accounts using Devise.
 + Translation.
-
 + Authentication using Facebook.
++ Everything works incl. email confirmations etc.
++ Admin account.
++ Only authenticated users can add ideas.
++ Only admins can remove/edit ideas.
 
-- Everything works incl. email confirmations etc.
 
-- Admin account.
-
-- Only authenticated users can add ideas.
 - Authenticated users can vote.
-
-- Only admins can remove/edit ideas.
 - Authors can remove/edit ideas.
-
 - Show forms inline.
