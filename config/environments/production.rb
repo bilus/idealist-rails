@@ -66,5 +66,5 @@
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # Required to create links in mailers (devise req).
-  config.action_mailer.default_url_options = { :host => 'wrokreacje.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'wrokreacje.pl' }
 end
